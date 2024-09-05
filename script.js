@@ -142,12 +142,51 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
-const book = getBook(1);
-const { title, publicationDate, author } = book;
-console.log(title, author, publicationDate);
-const updateBook = {
-  ...book,
-  moviePublicationDate: "2001-12-19",
-  pages: 1210,
+
+// const { title, publicationDate, author } = book;
+// console.log(title, author, publicationDate);
+// const updateBook = {
+//   ...book,
+//   moviePublicationDate: "2001-12-19",
+//   pages: 1210,
+// };
+// console.log(0 && "Jonas");
+
+// function getReiewCount(book) {
+//   const reviewsCount = book.reviews.goodreads.reviewsCount;
+//   const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+//   return reviewsCount + librarything;
+// }
+// console.log(getReiewCount(book));
+// console.log("Hi");
+const books = getBooks();
+const titles = books.map((book) => book.title);
+console.log(titles);
+const products = [
+  { id: 1, name: "Laptop", price: 999, inStock: true },
+  { id: 2, name: "Smartphone", price: 499, inStock: false },
+  { id: 3, name: "Tablet", price: 299, inStock: true },
+  { id: 4, name: "Headphones", price: 199, inStock: false },
+  { id: 5, name: "Smartwatch", price: 249, inStock: false },
+  { id: 6, name: "TV", price: 999, inStock: true },
+  { id: 7, name: "Pc Charger", price: 4990, inStock: false },
+  { id: 8, name: "Radio", price: 299, inStock: true },
+  { id: 9, name: "Desktop", price: 199, inStock: false },
+  { id: 10, name: "Clock", price: 249, inStock: false },
+];
+const stockProducts = products.filter((product) => product.inStock);
+const stockProductNames = stockProducts.map((product) => product.name);
+const longPages = books.filter((book) => book.pages > 500);
+const totalPages = books.reduce((acc, book) => acc + book.pages, 10);
+console.log(totalPages);
+const arr = [87, 98, 99, 100, 67, 76, 98];
+const sorted = arr.sort((a, b) => a - b);
+sorted;
+sorted.length;
+const newBook = {
+  id: 8,
+  title: "Fikr Eske Mekabr",
+  author: "Haddis Alemayehu",
 };
-updateBook;
+const UpdatedBooks = [...books, newBook];
+UpdatedBooks;
