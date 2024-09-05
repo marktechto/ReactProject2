@@ -142,3 +142,12 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+const book = getBook(1);
+const { title, publicationDate, author } = book;
+console.log(title, author, publicationDate);
+const updateBook = {
+  ...book,
+  moviePublicationDate: "2001-12-19",
+  pages: 1210,
+};
+updateBook;
